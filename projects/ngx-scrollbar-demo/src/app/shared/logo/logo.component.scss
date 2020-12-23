@@ -1,0 +1,22 @@
+:host {
+  position: relative;
+  display: block;
+  height: 100%;
+}
+
+.fill-lighter {
+
+  use {
+    fill: white;
+  }
+}
+.fill-darker {
+  use {
+    fill: rgba(white, 0.8);
+  }
+}
+.fill-primary {
+  use {
+    fill: var(--color-app-logo);
+  }
+}

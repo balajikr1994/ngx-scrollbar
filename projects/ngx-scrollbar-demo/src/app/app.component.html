@@ -1,0 +1,53 @@
+<!--<app-navigation-toolbar [scrollable]="scrollable"></app-navigation-toolbar>-->
+
+<ng-scrollbar #scrollable="ngScrollbar"
+              position="invertY"
+              viewClass="primary-bg"
+              trackClass="main-scrollbar"
+              appearance="compact">
+
+  <app-header></app-header>
+
+  <div class="page-wrapper">
+    <div class="wide-container">
+      <app-example-x *ngIf="largeScreen$ | async"></app-example-x>
+    </div>
+
+    <div class="container">
+
+      <h2 class="mat-typography">Examples</h2>
+
+      <app-example2></app-example2>
+
+      <app-example3></app-example3>
+
+      <app-example4></app-example4>
+
+      <app-example5></app-example5>
+
+      <h2 class="mat-typography">Smooth scroll example</h2>
+
+      <app-example-scrollto-element></app-example-scrollto-element>
+
+      <h2 class="mat-typography">Integrating with other libraries</h2>
+
+      <app-example-infinite-scroll></app-example-infinite-scroll>
+
+      <app-example-virtual-scroll></app-example-virtual-scroll>
+
+      <app-example-nested-virtual-scroll></app-example-nested-virtual-scroll>
+
+    </div>
+
+    <div class="wide-container">
+      <app-sponsors></app-sponsors>
+    </div>
+  </div>
+
+  <app-footer></app-footer>
+
+</ng-scrollbar>
+
+<button *ngIf="scrollToIcon$ | async as icon" mat-fab (click)="scrollToEdge(icon)">
+  <mat-icon>{{ icon === 'top' ? 'keyboard_arrow_up' : 'keyboard_arrow_down' }}</mat-icon>
+</button>
